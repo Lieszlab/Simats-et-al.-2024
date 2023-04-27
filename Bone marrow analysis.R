@@ -23,7 +23,7 @@ VlnPlot(object = BM.data, features = c("nFeature_RNA", "nCount_RNA", "percent.mi
 FeatureScatter(object = BM.data, feature1 = "nCount_RNA", feature2 = "percent.mito")
 FeatureScatter(object = BM.data, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
 
-csf <- subset(x = BM.data, subset = nFeature_RNA > 500 & percent.mito < '0.07')
+BM.data <- subset(x = BM.data, subset = nFeature_RNA > 500 & percent.mito < '0.07')
 VlnPlot(object = BM.data, features = c("nFeature_RNA", "nCount_RNA", "percent.mito"), ncol = 3)
 BM.data
 
