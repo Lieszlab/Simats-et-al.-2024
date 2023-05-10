@@ -1,3 +1,8 @@
+---
+title: "BM myeloid cells ATAC _ Simats et al., 2023"
+
+---
+
 library(Seurat)
 library(ArchR)
 library(TxDb.Mmusculus.UCSC.mm10.knownGene)
