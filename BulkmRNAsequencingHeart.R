@@ -98,19 +98,7 @@ plotSparsity(pre_dds)
 quantile(counts(pre_dds), seq(0, 1, by = 0.1))
 # 70% of the data is below a count of 1
 
-# Filter in only the genes that are expressed in 3 samples and with >1 counts
-pre_dds <- pre_dds[rowSums(counts(pre_dds) > 1 ) >= 3, ]
-pre_dds
-# we have 8319 genes remaining
-
-# let's check the diversity
-pre_dds <- estimateSizeFactors(pre_dds)
-plotSparsity(pre_dds)
-# highly expressed genes are still unique to several samples. Maybe raise the
-# min sample threshold.
-table(colData(pre_dds)$condition)
-# the smallest group is control with 5 samples. Let's set up the minimum to 5.
-
+# Filter in only the genes that are expressed in 5 samples and with >1 counts
 pre_dds <- pre_dds[rowSums(counts(pre_dds) > 1 ) >= 5, ]
 pre_dds
 # we have 3424 genes remaining
@@ -183,8 +171,7 @@ plot(mean_vst, sd_vst, asp = 1)
 # Gene variation per sample after normalisation with vst
 boxplot(assay(vst), las=2, main="vst")
 
-# we choose rld normalisation but still remaining highly variable genes
-# (plotSparsity was pointing to those already)
+# we choose rld normalisation 
 
 ################################################################################
 # Heatmap of DGE
